@@ -1,0 +1,35 @@
+# 1) The problem was letter it ws never defined so it caused an error to fix it you have to change letter to L
+# 2) I know its working because after i ran the code i got the output i was looking for
+#3 and #4
+import random
+
+listAnswer = ['egypt','america','december','candy','hangman']
+
+answer = listAnswer[random.randint(0,4)]
+A = list(answer)
+L = ['_']*len(answer)
+play = True
+chance = 0
+
+while play == True:
+    print('Guess a letter in the word: ')
+    guess = str(input())
+    if guess in A:
+        a = 0
+        print('GOOD GUESS!')
+        for i in answer:
+            if i == guess:
+                L[a] = i
+            a += 1
+        for i in L:
+            print(i,end = '')
+        print('\n')
+    else:
+        print('BAD GUESS!')
+        chance += 1
+    if chance == 6:
+        print('You have run out of chances. YOU LOSE!')
+        break;
+    if A == L:
+        play = False
+        print('GREAT JOB. YOU WIN!')
